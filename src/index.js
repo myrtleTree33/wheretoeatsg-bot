@@ -2,6 +2,7 @@ import express from 'express';
 import { logger, loggingMiddleware } from './utils/logger';
 
 import sampleController from './controllers/sampleController';
+import bot from './bot';
 
 const { PORT } = process.env;
 
@@ -16,3 +17,6 @@ app.use('/sample', sampleController);
 
 // start app
 app.listen(PORT, () => logger.info(`Example app listening on port ${PORT}!`));
+
+// start bot
+bot.launch();
